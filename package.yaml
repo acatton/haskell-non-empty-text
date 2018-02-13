@@ -1,0 +1,47 @@
+---
+# Project template
+# <from https://pbrisbin.com/posts/haskell_project_checklist/>
+name: non-empty-text
+version: 0.1.0
+category: Data, Text, NonEmpty
+synopsis: Non empty Data.Text type
+description: |
+  Typesafe thin wrapper around Data.Text to make impossible to be empty (to
+  always holt at least on character)
+author: Antoine Catton
+maintainer: Antoine Catton <devel@antoine.catton.fr>
+github: acatton/haskell-non-empty-text
+license: OtherLicense
+
+# Options from:
+# <https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/#warning-flags-for-a-safe-build>
+ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+
+
+dependencies:
+  - base >=4.8 && <5
+  - text >=1.2 && <3
+
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Data.NonEmptyText
+
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs: test
+    other-modules:
+      - Data.NonEmptyTextSpec
+    dependencies:
+      - non-empty-text
+      - hspec
+      - QuickCheck >=2.10 && <3
+  doctest:
+    main: DocTest.hs
+    source-dirs: .
+    dependencies:
+      - doctest
+      - Glob
