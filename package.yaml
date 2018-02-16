@@ -7,7 +7,7 @@ category: Data, Text, NonEmpty
 synopsis: Non empty Data.Text type
 description: |
   Typesafe thin wrapper around Data.Text to make impossible to be empty (to
-  always holt at least on character)
+  always hold at least on character)
 author: Antoine Catton
 maintainer: Antoine Catton <devel@antoine.catton.fr>
 github: acatton/haskell-non-empty-text
