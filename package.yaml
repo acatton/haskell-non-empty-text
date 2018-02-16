@@ -2,7 +2,7 @@
 # Project template
 # <from https://pbrisbin.com/posts/haskell_project_checklist/>
 name: non-empty-text
-version: 0.1.0
+version: 0.1.1
 category: Data, Text, NonEmpty
 synopsis: Non empty Data.Text type
 description: |
