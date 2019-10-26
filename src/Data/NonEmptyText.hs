@@ -31,6 +31,8 @@ data NonEmptyText = NonEmptyText Char Text.Text
 instance Show NonEmptyText where
     show = show . toText
 
+instance Semigroup NonEmptyText where
+    x <> y = append x y
 
 -- | /O(1)/ Create a new 'NonEmptyText'
 --
