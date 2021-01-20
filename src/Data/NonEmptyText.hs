@@ -21,6 +21,7 @@ module Data.NonEmptyText
     , isSingleton
     ) where
 
+import Data.Bifunctor ( bimap )
 import qualified Data.Text as Text
 
 
@@ -129,6 +130,12 @@ length = (1 +) . Text.length . Data.NonEmptyText.tail
 -- not reflected in the type.
 toText :: NonEmptyText -> Text.Text
 toText = uncurry Text.cons . uncons
+
+
+-- | /O(n)/ 'map' @f@ @t@ is the 'NonEmptyText' obtained by applying @f@ to
+-- each element of @t@.
+map :: (Char -> Char) -> NonEmptyText -> NonEmptyText
+map f = uncurry new . bimap f (Text.map f) . uncons
 
 
 -- | /O(n)/ Create a 'NonEmptyText' from 'Data.Text.Text'.
