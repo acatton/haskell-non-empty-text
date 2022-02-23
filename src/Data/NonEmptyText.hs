@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveGeneric #-}
 module Data.NonEmptyText
     ( NonEmptyText
 
@@ -18,16 +20,18 @@ module Data.NonEmptyText
     , Data.NonEmptyText.tail
     , Data.NonEmptyText.init
     , Data.NonEmptyText.length
+    , Data.NonEmptyText.map
     , isSingleton
     ) where
 
+import GHC.Generics (Generic)
+import Control.DeepSeq (NFData)
 import Data.Bifunctor ( bimap )
 import qualified Data.Text as Text
 
 
 data NonEmptyText = NonEmptyText Char Text.Text
-                      deriving (Eq, Ord)
-
+                      deriving (Eq, Ord, NFData, Generic)
 
 instance Show NonEmptyText where
     show = show . toText

@@ -20,8 +20,8 @@ ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-pattern
 
 dependencies:
   - base >=4.8 && <5
+  - deepseq >=1.3.0.0 && <1.5
   - text >=1.2 && <3
-
 
 library:
   source-dirs: src
